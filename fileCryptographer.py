@@ -29,7 +29,6 @@ class CryptoKey:
 		key = base64.urlsafe_b64encode(digest.finalize())
 		return(key)
 
-
 	def encrypter(self, key, token):
 		f = Fernet(key)
 		encrypted = f.encrypt(token.encode(encoding = 'utf-8'))
@@ -42,7 +41,7 @@ class CryptoKey:
 
 # decrypt file
 Crypto = CryptoKey()
-token = Crypto.loadfile('~/file.txt')		      # provide file path
-password = getpass.getpass('key: ')						# provide password
-key = Crypto.keygen(password)									# generate key
-Crypto.decrypter(key,token)										# decrypt file
+token = Crypto.loadfile('~/file.txt')		# provide file path
+password = getpass.getpass('key: ')		# provide password
+key = Crypto.keygen(password)			# generate key
+Crypto.decrypter(key,token)			# decrypt file
